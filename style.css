@@ -1,0 +1,17 @@
+.section-title {
+  color: #1f3a5f;
+  border-left: 6px solid #e07a1f;
+  padding-left: 12px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.big {
+  font-size: 1.25rem;
+}
+
+.table-warning > th,
+.table-warning > td {
+    background-color: #ffeb3b !important;
+    color: #000000 !important;
+}

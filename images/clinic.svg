@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+  <rect width="240" height="180" fill="#f4f6f9"/>
+  <rect x="40" y="60" width="160" height="100" fill="#ffffff" stroke="#1f3a5f" stroke-width="3"/>
+  <polygon points="30,62 120,22 210,62" fill="#1f3a5f"/>
+  <rect x="104" y="110" width="32" height="50" fill="#e07a1f"/>
+  <rect x="56" y="80" width="30" height="24" fill="#c9d6e8" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="154" y="80" width="30" height="24" fill="#c9d6e8" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="112" y="68" width="16" height="30" fill="#ffffff"/>
+  <rect x="105" y="75" width="30" height="16" fill="#ffffff"/>
+  <rect x="113" y="69" width="14" height="28" fill="#c0392b"/>
+  <rect x="106" y="76" width="28" height="14" fill="#c0392b"/>
+  <text x="120" y="172" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#4b5563">示範診所</text>
+</svg>

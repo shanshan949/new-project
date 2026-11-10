@@ -1,0 +1,9 @@
+[ 
+    {"day":0, "name":"星期日", "am":false, "pm":false, "night":false},
+    {"day":1, "name":"星期一", "am":true, "pm":true, "night":true},
+    {"day":3, "name":"星期三", "am":true, "pm":true, "night":false},
+    {"day":4, "name":"星期四", "am":true, "pm":true, "night":false},
+    {"day":5, "name":"星期五", "am":true, "pm":true, "night":true},
+    {"day":6, "name":"星期六", "am":true, "pm":false, "night":false}
+    
+]

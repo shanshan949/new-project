@@ -147,6 +147,141 @@ bigButton.addEventListener("click", () => {
     }
 });
 
+// 載入最新消息
+async function loadNews() {
+    const newsList = document.getElementById("newsList");
+
+    // 顯示載入中
+    newsList.innerHTML = '<li class="list-group-item">載入中…</li>';
+
+    try {
+        // 讀取 JSON
+        const res = await fetch("data/new.json");
+
+        // 檢查是否成功
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+
+        // 取得 JSON 資料
+        const news = await res.json();
+
+        // 清空原本內容
+        newsList.innerHTML = "";
+
+        // 用迴圈產生消息
+        for (const item of news) {
+            const li = document.createElement("li");
+
+            li.className = "list-group-item";
+
+            li.innerHTML = `
+                ${item.date}　
+                <span class="badge bg-primary">${item.tag}</span>
+                ${item.title}
+            `;
+
+            newsList.appendChild(li);
+        }
+
+    } catch (err) {
+        newsList.innerHTML =
+            `<li class="list-group-item text-danger">
+                最新消息載入失敗：${err.message}
+            </li>`;
+    }
+}
+
+// 執行函式
+loadNews();
+
+// 載入醫師資料
+async function loadDoctors() {
+
+    const doctorCards = document.getElementById("doctorCards");
+
+    // 1. 顯示載入中
+    doctorCards.innerHTML = `
+        <div class="col-12">
+            <div class="alert alert-info">
+                醫師資料載入中…
+            </div>
+        </div>
+    `;
+
+    try {
+
+        // 2. 讀取 JSON
+        const res = await fetch("data/doctor.json");
+
+        // 3. 檢查 HTTP 狀態
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+
+        // 4. 取得 JSON 資料
+        const doctors = await res.json();
+
+        // 5. 清空原本內容
+        doctorCards.innerHTML = "";
+
+        // 6. 用迴圈產生三張卡片
+        for (const doctor of doctors) {
+
+            const card = document.createElement("div");
+
+            card.className = "col-md-4";
+
+            card.innerHTML = `
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            ${doctor.name}
+                        </h5>
+
+                        <span class="badge bg-primary">
+                            ${doctor.dept}
+                        </span>
+
+                        <p class="card-text mt-3">
+                            <strong>專長：</strong>
+                            ${doctor.specialty}
+                        </p>
+
+                        <p class="card-text">
+                            <strong>看診時間：</strong>
+                            ${doctor.time}
+                        </p>
+
+                    </div>
+                </div>
+            `;
+
+            doctorCards.appendChild(card);
+        }
+
+    } catch (err) {
+
+        // 7. 載入失敗
+        doctorCards.innerHTML = `
+            <div class="col-12">
+                <div class="alert alert-danger">
+                    醫師資料載入失敗：${err.message}
+                </div>
+            </div>
+        `;
+
+    }
+}
+
+// 第一次載入醫師資料
+loadDoctors();
+
+// 按下重新載入按鈕
+document.getElementById("reloadDoctors")
+    .addEventListener("click", loadDoctors);
+
 renderHours();
 showToday();
 loadHours()

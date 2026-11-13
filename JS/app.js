@@ -156,7 +156,7 @@ async function loadNews() {
 
     try {
         // 讀取 JSON
-        const res = await fetch("data/new.json");
+        const res = await fetch("data/news.json");
 
         // 檢查是否成功
         if (!res.ok) {
@@ -212,7 +212,7 @@ async function loadDoctors() {
     try {
 
         // 2. 讀取 JSON
-        const res = await fetch("data/doctor.json");
+        const res = await fetch("data/doctors.json");
 
         // 3. 檢查 HTTP 狀態
         if (!res.ok) {
